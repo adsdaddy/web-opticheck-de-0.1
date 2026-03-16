@@ -70,8 +70,8 @@ export default function PublicHeader({
                 {hoveredDropdown === "produkte" && (
                   <div className="absolute left-0 top-full z-50 pt-2">
                     <div className="min-w-[280px] rounded-xl border border-white/12 bg-[#0A1B3D]/95 p-2 shadow-[0_22px_55px_rgba(4,14,34,0.5)] backdrop-blur-xl">
-                      <a
-                        href={WOHNGEBAUDE_CHECK_URL}
+                      <Link
+                        href="/wohngebaeudeversicherung"
                         className="flex items-center gap-3 rounded-lg px-4 py-3 text-sm text-white/80 transition hover:bg-white/10 hover:text-white"
                       >
                         <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#25C685]/20 text-xs">🏠</span>
@@ -79,7 +79,7 @@ export default function PublicHeader({
                           <div className="font-semibold text-white/90">Wohngebäudeversicherung</div>
                           <div className="text-xs text-[#25C685]">Jetzt verfügbar</div>
                         </div>
-                      </a>
+                      </Link>
                       <Link
                         href="/krankenversicherung"
                         className="flex items-center gap-3 rounded-lg px-4 py-3 text-sm text-white/50 transition hover:bg-white/5"
@@ -166,9 +166,9 @@ export default function PublicHeader({
                 </button>
                 {produkteOpen && (
                   <div className="ml-3 space-y-1 border-l border-white/10 pl-3">
-                    <a href={WOHNGEBAUDE_CHECK_URL} className="block rounded-lg px-3 py-2 text-sm text-white/70 hover:text-white" onClick={() => setMobileMenuOpen(false)}>
+                    <Link href="/wohngebaeudeversicherung" className="block rounded-lg px-3 py-2 text-sm text-white/70 hover:text-white" onClick={() => setMobileMenuOpen(false)}>
                       Wohngebäudeversicherung
-                    </a>
+                    </Link>
                     <Link href="/krankenversicherung" className="block rounded-lg px-3 py-2 text-sm text-white/50" onClick={() => setMobileMenuOpen(false)}>
                       Private Krankenversicherung <span className="ml-1 text-xs text-amber-400">(bald)</span>
                     </Link>

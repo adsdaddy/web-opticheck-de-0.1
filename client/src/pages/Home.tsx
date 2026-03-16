@@ -433,7 +433,7 @@ function TrustCertificationsSection() {
 /* ═══ MAIN HOME COMPONENT ═══ */
 export default function Home() {
   useEffect(() => {
-    document.title = "Versicherungen vergleichen und sparen | OptiCheck Deutschland";
+    document.title = "Versicherungen vergleichen | OptiCheck";
 
     let descriptionTag = document.querySelector('meta[name="description"]');
     if (!descriptionTag) {
@@ -443,7 +443,18 @@ export default function Home() {
     }
     descriptionTag.setAttribute(
       "content",
-      "28.000+ Deutsche nutzen OptiCheck, um mit geprüften Versicherungsmaklern verbunden zu werden und bei Wohngebäude-, Kfz-, Haftpflicht-, BU- und Krankenversicherung zu sparen. Kostenloser SmartCheck in 2 Minuten."
+      "Versicherungen smart vergleichen: OptiCheck verbindet Sie mit geprüften Maklern für Wohngebäude-, Kfz- und Haftpflichtversicherung. SmartCheck in 2 Min."
+    );
+
+    let keywordsTag = document.querySelector('meta[name="keywords"]');
+    if (!keywordsTag) {
+      keywordsTag = document.createElement("meta");
+      keywordsTag.setAttribute("name", "keywords");
+      document.head.appendChild(keywordsTag);
+    }
+    keywordsTag.setAttribute(
+      "content",
+      "Versicherung vergleichen, Wohngebäudeversicherung, Versicherungsmakler, Versicherungsvergleich Deutschland, SmartCheck, Kfz-Versicherung, Haftpflichtversicherung, Berufsunfähigkeitsversicherung, Krankenversicherung, OptiCheck"
     );
   }, []);
 
@@ -455,7 +466,7 @@ export default function Home() {
         {/* ═══ HERO SECTION ═══ */}
         <section className="relative isolate overflow-hidden border-b border-[#122749] bg-[#081B3D] text-white">
           <div className="absolute inset-0 z-0">
-            <img src={propertyGerman} alt="" aria-hidden="true"
+            <img src={propertyGerman} alt="Deutsche Wohnsiedlung als Hintergrundbild" aria-hidden="true"
               className="h-full w-full object-cover opacity-[0.14] mix-blend-screen scale-110" />
           </div>
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(47,107,255,0.26),transparent_32%),radial-gradient(circle_at_top_right,rgba(37,198,133,0.14),transparent_26%),linear-gradient(180deg,#0A1F47_0%,#081B3D_58%,#102A56_100%)]" />

@@ -14,6 +14,7 @@ import UeberUns from "./pages/UeberUns";
 import Karriere from "./pages/Karriere";
 import PartnerWerden from "./pages/PartnerWerden";
 import Krankenversicherung from "./pages/Krankenversicherung";
+import Wohngebaeudeversicherung from "./pages/Wohngebaeudeversicherung";
 import { useEffect } from "react";
 import { useLocation } from "wouter";
 
@@ -41,6 +42,7 @@ function Router() {
         <Route path="/karriere" component={Karriere} />
         <Route path="/partner-werden" component={PartnerWerden} />
         <Route path="/krankenversicherung" component={Krankenversicherung} />
+        <Route path="/wohngebaeudeversicherung" component={Wohngebaeudeversicherung} />
         <Route path="/404" component={NotFound} />
         <Route component={NotFound} />
       </Switch>

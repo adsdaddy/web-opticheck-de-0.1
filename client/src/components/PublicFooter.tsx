@@ -12,7 +12,7 @@ const logoDark =
   "https://d2xsxph8kpxj0f.cloudfront.net/310519663380993655/ZmgeavQNGVXjbUckiZMcqr/optichecklogoblackbackground_275c3b11.png";
 
 const produkteLinks = [
-  { label: "Wohngebäudeversicherung", href: WOHNGEBAUDE_CHECK_URL, external: true },
+  { label: "Wohngebäudeversicherung", href: "/wohngebaeudeversicherung", external: false },
   { label: "Private Krankenversicherung", href: "/krankenversicherung", external: false, comingSoon: true },
 ];
 
