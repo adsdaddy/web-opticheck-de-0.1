@@ -55,18 +55,18 @@ const iso27001Badge = "https://d2xsxph8kpxj0f.cloudfront.net/310519663380993655/
 const soc2Badge = "https://d2xsxph8kpxj0f.cloudfront.net/310519663380993655/fQEoWXU3HmfkrqUK7vBeHa/soc2-badge_4bb06d7f.png";
 const gdprBadge = "https://d2xsxph8kpxj0f.cloudfront.net/310519663380993655/fQEoWXU3HmfkrqUK7vBeHa/gdpr-badge_b110e588.jpg";
 
-/* ═══ GERMAN CITY IMAGES (Unsplash) ═══ */
+/* ═══ GERMAN CITY IMAGES ═══ */
 const cityImages: Record<string, string> = {
   Berlin: "https://images.unsplash.com/photo-1560969184-10fe8719e047?w=600&q=80",
   München: "https://images.unsplash.com/photo-1595867818082-083862f3d630?w=600&q=80",
-  Hamburg: "https://images.unsplash.com/photo-1580748141549-71748dbe0bdc?w=600&q=80",
-  Frankfurt: "https://images.unsplash.com/photo-1467269204594-9661b134dd2b?w=600&q=80",
-  Köln: "https://images.unsplash.com/photo-1515091943-9d5c0ad475af?w=600&q=80",
-  Düsseldorf: "https://images.unsplash.com/photo-1549924231-f129b911e442?w=600&q=80",
-  Stuttgart: "https://images.unsplash.com/photo-1534313314376-a72289b6181e?w=600&q=80",
-  Leipzig: "https://images.unsplash.com/photo-1599946347371-68eb71b16afc?w=600&q=80",
-  Dresden: "https://images.unsplash.com/photo-1528728329032-2972f65dfb3f?w=600&q=80",
-  Hannover: "https://images.unsplash.com/photo-1570168007204-dfb528c6958f?w=600&q=80",
+  Hamburg: "https://d2xsxph8kpxj0f.cloudfront.net/310519663380993655/fQEoWXU3HmfkrqUK7vBeHa/hamburg_a2c098ef.jpg",
+  Frankfurt: "https://d2xsxph8kpxj0f.cloudfront.net/310519663380993655/fQEoWXU3HmfkrqUK7vBeHa/frankfurt_871a6626.jpg",
+  Köln: "https://d2xsxph8kpxj0f.cloudfront.net/310519663380993655/fQEoWXU3HmfkrqUK7vBeHa/koeln_8ea8d34b.jpg",
+  Düsseldorf: "https://d2xsxph8kpxj0f.cloudfront.net/310519663380993655/fQEoWXU3HmfkrqUK7vBeHa/duesseldorf_e0c3860a.jpg",
+  Stuttgart: "https://d2xsxph8kpxj0f.cloudfront.net/310519663380993655/fQEoWXU3HmfkrqUK7vBeHa/stuttgart_aa2b01f3.jpg",
+  Leipzig: "https://d2xsxph8kpxj0f.cloudfront.net/310519663380993655/fQEoWXU3HmfkrqUK7vBeHa/leipzig_65c6872a.jpg",
+  Dresden: "https://d2xsxph8kpxj0f.cloudfront.net/310519663380993655/fQEoWXU3HmfkrqUK7vBeHa/dresden_9c7d0829.jpg",
+  Hannover: "https://d2xsxph8kpxj0f.cloudfront.net/310519663380993655/fQEoWXU3HmfkrqUK7vBeHa/hannover_df9dc171.jpg",
 };
 
 const cityNames = [
@@ -952,6 +952,49 @@ export default function Home() {
                 className="h-full min-h-[420px] w-full object-cover"
                 sizes="(max-width: 1024px) 100vw, 50vw" width={960} height={640}
               />
+            </div>
+          </div>
+        </motion.section>
+
+        {/* ═══ PARTNER SECTION ═══ */}
+        <motion.section {...sectionMotion} className="bg-[#F7F5F0] py-16 md:py-20">
+          <div className="container">
+            <div className="text-center">
+              <p className="text-xs font-bold uppercase tracking-[0.25em] text-[#3A4A5D]/60">
+                Unsere Partner vertrauen auf OptiCheck
+              </p>
+            </div>
+            <div className="mt-10 flex flex-wrap items-center justify-center gap-8 md:gap-14">
+              {/* HMR Versicherungsmakler */}
+              <a href="https://sicherhmr.de/" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-3 rounded-2xl border border-[#E2DFD8] bg-white px-6 py-4 shadow-sm transition hover:border-[#2F6BFF]/30 hover:shadow-md">
+                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[#1B2A4A]">
+                  <Shield className="h-5 w-5 text-white" />
+                </div>
+                <div>
+                  <span className="block text-sm font-bold text-[#171A21]">HMR</span>
+                  <span className="block text-[0.7rem] text-[#3A4A5D]/70">Versicherungsmakler</span>
+                </div>
+              </a>
+              {/* Altera Finanz */}
+              <a href="https://www.altera-finanz.de/" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-3 rounded-2xl border border-[#E2DFD8] bg-white px-6 py-4 shadow-sm transition hover:border-[#2F6BFF]/30 hover:shadow-md">
+                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[#2E7D32]">
+                  <Building2 className="h-5 w-5 text-white" />
+                </div>
+                <div>
+                  <span className="block text-sm font-bold text-[#171A21]">Altera Finanz</span>
+                  <span className="block text-[0.7rem] text-[#3A4A5D]/70">Finanz & Versicherung</span>
+                </div>
+              </a>
+              {/* Finanzberatung Singer */}
+              <a href="https://www.finanzberatung-singer.de/" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-3 rounded-2xl border border-[#E2DFD8] bg-white px-6 py-4 shadow-sm transition hover:border-[#2F6BFF]/30 hover:shadow-md">
+                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[#6D3A3A]">
+                  <HeartHandshake className="h-5 w-5 text-white" />
+                </div>
+                <div>
+                  <span className="block text-sm font-bold text-[#171A21]">Christian Singer</span>
+                  <span className="block text-[0.7rem] text-[#3A4A5D]/70">Finanzberatung</span>
+                </div>
+              </a>
             </div>
           </div>
         </motion.section>
