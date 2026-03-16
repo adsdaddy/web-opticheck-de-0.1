@@ -18,6 +18,7 @@ import {
   Clock3,
   HeartHandshake,
   House,
+  Lock,
   MapPin,
   Shield,
   ShieldCheck,
@@ -49,14 +50,19 @@ const propertyGerman =
 const consumerGuidance =
   "https://d2xsxph8kpxj0f.cloudfront.net/310519663380993655/fQEoWXU3HmfkrqUK7vBeHa/opticheck-de-consumer-guidance-hhJNazcC2JS2yrWZVDMqRk.webp";
 
+/* ═══ TRUST CERTIFICATION BADGES ═══ */
+const iso27001Badge = "https://d2xsxph8kpxj0f.cloudfront.net/310519663380993655/fQEoWXU3HmfkrqUK7vBeHa/iso27001-badge_be61318f.png";
+const soc2Badge = "https://d2xsxph8kpxj0f.cloudfront.net/310519663380993655/fQEoWXU3HmfkrqUK7vBeHa/soc2-badge_4bb06d7f.png";
+const gdprBadge = "https://d2xsxph8kpxj0f.cloudfront.net/310519663380993655/fQEoWXU3HmfkrqUK7vBeHa/gdpr-badge_b110e588.jpg";
+
 /* ═══ GERMAN CITY IMAGES (Unsplash) ═══ */
 const cityImages: Record<string, string> = {
   Berlin: "https://images.unsplash.com/photo-1560969184-10fe8719e047?w=600&q=80",
-  Munchen: "https://images.unsplash.com/photo-1595867818082-083862f3d630?w=600&q=80",
+  München: "https://images.unsplash.com/photo-1595867818082-083862f3d630?w=600&q=80",
   Hamburg: "https://images.unsplash.com/photo-1580748141549-71748dbe0bdc?w=600&q=80",
   Frankfurt: "https://images.unsplash.com/photo-1467269204594-9661b134dd2b?w=600&q=80",
-  Koln: "https://images.unsplash.com/photo-1515091943-9d5c0ad475af?w=600&q=80",
-  Dusseldorf: "https://images.unsplash.com/photo-1549924231-f129b911e442?w=600&q=80",
+  Köln: "https://images.unsplash.com/photo-1515091943-9d5c0ad475af?w=600&q=80",
+  Düsseldorf: "https://images.unsplash.com/photo-1549924231-f129b911e442?w=600&q=80",
   Stuttgart: "https://images.unsplash.com/photo-1534313314376-a72289b6181e?w=600&q=80",
   Leipzig: "https://images.unsplash.com/photo-1599946347371-68eb71b16afc?w=600&q=80",
   Dresden: "https://images.unsplash.com/photo-1528728329032-2972f65dfb3f?w=600&q=80",
@@ -64,41 +70,53 @@ const cityImages: Record<string, string> = {
 };
 
 const cityNames = [
-  "Berlin", "Munchen", "Hamburg", "Frankfurt", "Koln",
-  "Dusseldorf", "Stuttgart", "Leipzig", "Dresden", "Hannover",
+  "Berlin", "München", "Hamburg", "Frankfurt", "Köln",
+  "Düsseldorf", "Stuttgart", "Leipzig", "Dresden", "Hannover",
 ];
 
 /* ═══ INSURANCE CATEGORIES ═══ */
+const WOHNGEBAUDE_CHECK_URL = "https://get.opticheck.io/wohngebaude-check";
+
 const insuranceOptions = [
   {
     icon: House,
-    title: "Wohngebaudeversicherung",
-    subtitle: "Schutz fur Ihr Eigenheim gegen Feuer, Sturm, Leitungswasser und weitere Risiken",
-    href: "#smartcheck",
+    title: "Wohngebäudeversicherung",
+    subtitle: "Schutz für Ihr Eigenheim gegen Feuer, Sturm, Leitungswasser und weitere Risiken",
+    href: WOHNGEBAUDE_CHECK_URL,
+    active: true,
+    comingSoon: false,
   },
   {
     icon: CarFront,
     title: "Kfz-Versicherung",
-    subtitle: "Haftpflicht, Teilkasko oder Vollkasko: finden Sie den besten Schutz fur Ihr Fahrzeug",
-    href: "#smartcheck",
+    subtitle: "Haftpflicht, Teilkasko oder Vollkasko: finden Sie den besten Schutz für Ihr Fahrzeug",
+    href: "#",
+    active: false,
+    comingSoon: true,
   },
   {
     icon: Shield,
     title: "Haftpflichtversicherung",
-    subtitle: "Die wichtigste Versicherung uberhaupt: Schutz vor Schadenersatzanspruchen Dritter",
-    href: "#smartcheck",
+    subtitle: "Die wichtigste Versicherung überhaupt: Schutz vor Schadenersatzansprüchen Dritter",
+    href: "#",
+    active: false,
+    comingSoon: true,
   },
   {
     icon: Umbrella,
-    title: "Berufsunfahigkeitsversicherung",
-    subtitle: "Sichern Sie Ihr Einkommen ab, falls Sie Ihren Beruf nicht mehr ausuben konnen",
-    href: "#smartcheck",
+    title: "Berufsunfähigkeitsversicherung",
+    subtitle: "Sichern Sie Ihr Einkommen ab, falls Sie Ihren Beruf nicht mehr ausüben können",
+    href: "#",
+    active: false,
+    comingSoon: true,
   },
   {
     icon: Heart,
     title: "Krankenversicherung",
-    subtitle: "Gesetzlich oder privat? Finden Sie die optimale Absicherung fur Ihre Gesundheit",
-    href: "#smartcheck",
+    subtitle: "Gesetzlich oder privat? Finden Sie die optimale Absicherung für Ihre Gesundheit",
+    href: "#",
+    active: false,
+    comingSoon: true,
   },
 ];
 
@@ -114,14 +132,14 @@ const metrics = [
 const heroTrustChips = [
   "Kein Einfluss auf Ihren SCHUFA-Score",
   "Vermittlung an echte Makler, kein Chatbot",
-  "Entwickelt fur den deutschen Markt",
+  "Entwickelt für den deutschen Markt",
 ];
 
 const trustBadges = [
-  "Bankgrade-verschlusselte Verbindung: Ihre Daten sind jederzeit sicher",
-  "Vermittlung an lizenzierte Makler, kein Verkauf an zufallige Anbieter",
+  "Bankverschlüsselte Verbindung: Ihre Daten sind jederzeit sicher",
+  "Vermittlung an lizenzierte Makler, kein Verkauf an zufällige Anbieter",
   "Eine 2-Minuten-Anfrage deckt alle Versicherungsbereiche ab",
-  "Personliche Ruckmeldung innerhalb weniger Stunden, keine automatisierten E-Mails",
+  "Persönliche Rückmeldung innerhalb weniger Stunden, keine automatisierten E-Mails",
 ];
 
 /* ═══ PILLARS ═══ */
@@ -134,12 +152,12 @@ const pillars = [
   {
     icon: HeartHandshake,
     title: "Ein echter Makler an Ihrer Seite",
-    copy: "Vergessen Sie Chatbots und generische Vergleichstabellen. Ihre Anfrage landet bei einem lizenzierten Makler, der sich personlich um Sie kummert.",
+    copy: "Vergessen Sie Chatbots und generische Vergleichstabellen. Ihre Anfrage landet bei einem lizenzierten Makler, der sich persönlich um Sie kümmert.",
   },
   {
     icon: ShieldCheck,
-    title: "Vertrauen, das Sie spuren",
-    copy: "Verschlusselte Daten, transparente Prozesse und keine versteckten Kosten. OptiCheck wurde fur die Entscheidungen gebaut, die wirklich zahlen.",
+    title: "Vertrauen, das Sie spüren",
+    copy: "Verschlüsselte Daten, transparente Prozesse und keine versteckten Kosten. OptiCheck wurde für die Entscheidungen gebaut, die wirklich zählen.",
   },
 ];
 
@@ -153,12 +171,12 @@ const steps = [
   {
     number: "02",
     title: "Wir finden Ihre beste Option",
-    copy: "SmartCheck gleicht Ihr Profil mit uber 120 Versicherungspartnern ab und zeigt Ihnen nur die Wege, die sich wirklich lohnen.",
+    copy: "SmartCheck gleicht Ihr Profil mit über 120 Versicherungspartnern ab und zeigt Ihnen nur die Wege, die sich wirklich lohnen.",
   },
   {
     number: "03",
     title: "Lernen Sie Ihren Makler kennen",
-    copy: "Ein Spezialist pruft Ihre Anfrage, ruft Sie direkt an und bespricht mit Ihnen die besten Moglichkeiten.",
+    copy: "Ein Spezialist prüft Ihre Anfrage, ruft Sie direkt an und bespricht mit Ihnen die besten Möglichkeiten.",
   },
   {
     number: "04",
@@ -169,24 +187,24 @@ const steps = [
 
 /* ═══ COMPARISON ═══ */
 const comparisonRows = [
-  { feature: "Vorqualifizierung", opticheck: "KI-gestutzt in 2 Minuten", typical: "Einfaches Formular oder keine" },
-  { feature: "Personliche Betreuung", opticheck: "Lizenzierter Makler ruft Sie an", typical: "Self-Service oder Chatbot" },
+  { feature: "Vorqualifizierung", opticheck: "KI-gestützt in 2 Minuten", typical: "Einfaches Formular oder keine" },
+  { feature: "Persönliche Betreuung", opticheck: "Lizenzierter Makler ruft Sie an", typical: "Self-Service oder Chatbot" },
   { feature: "Anbietervergleich", opticheck: "120+ Partner, maklergesteuert", typical: "Gesponserte Ergebnisse" },
-  { feature: "Ihr Erlebnis", opticheck: "Gefuhrt, personlich, premium", typical: "Vergleichstabelle und viel Gluck" },
+  { feature: "Ihr Erlebnis", opticheck: "Geführt, persönlich, premium", typical: "Vergleichstabelle und viel Glück" },
 ];
 
 /* ═══ TESTIMONIALS ═══ */
 const testimonials = [
   {
-    quote: "Ich habe eine Stunde lang Versicherungen verglichen und war vollig uberfordert. Nach dem SmartCheck hatte ich innerhalb einer Stunde einen Makler am Telefon, der mir drei Optionen klar erklart hat.",
+    quote: "Ich habe eine Stunde lang Versicherungen verglichen und war völlig überfordert. Nach dem SmartCheck hatte ich innerhalb einer Stunde einen Makler am Telefon, der mir drei Optionen klar erklärt hat.",
     name: "Sabine M.",
-    context: "Wohngebaudeversicherung, Munchen",
+    context: "Wohngebäudeversicherung, München",
     stars: 5,
   },
   {
-    quote: "Als Selbststandiger ist es schwer, die richtige BU-Versicherung zu finden. Mein OptiCheck-Makler wusste genau, welche Anbieter meine Situation verstehen.",
+    quote: "Als Selbstständiger ist es schwer, die richtige BU-Versicherung zu finden. Mein OptiCheck-Makler wusste genau, welche Anbieter meine Situation verstehen.",
     name: "Thomas K.",
-    context: "Berufsunfahigkeitsversicherung, Hamburg",
+    context: "Berufsunfähigkeitsversicherung, Hamburg",
     stars: 5,
   },
   {
@@ -196,55 +214,55 @@ const testimonials = [
     stars: 5,
   },
   {
-    quote: "Ich dachte, meine Haftpflichtversicherung ware in Ordnung. Mein Makler hat mir gezeigt, dass ich deutlich unterversichert war, und das zum gleichen Preis.",
+    quote: "Ich dachte, meine Haftpflichtversicherung wäre in Ordnung. Mein Makler hat mir gezeigt, dass ich deutlich unterversichert war, und das zum gleichen Preis.",
     name: "Markus H.",
     context: "Haftpflichtversicherung, Frankfurt",
     stars: 5,
   },
   {
-    quote: "Der gesamte Prozess fuhlte sich begleitet und ruhig an. Kein Druck, nur klare Informationen und ein Makler, der wirklich zugehort hat.",
+    quote: "Der gesamte Prozess fühlte sich begleitet und ruhig an. Kein Druck, nur klare Informationen und ein Makler, der wirklich zugehört hat.",
     name: "Anna S.",
-    context: "Krankenversicherung, Koln",
+    context: "Krankenversicherung, Köln",
     stars: 5,
   },
   {
-    quote: "Wir haben unsere Wohngebaudeversicherung uber OptiCheck gewechselt und sparen jetzt 480 Euro im Jahr bei besserem Schutz. Warum habe ich das nicht fruher gemacht?",
+    quote: "Wir haben unsere Wohngebäudeversicherung über OptiCheck gewechselt und sparen jetzt 480 Euro im Jahr bei besserem Schutz. Warum habe ich das nicht früher gemacht?",
     name: "Stefan W.",
-    context: "Wohngebaudeversicherung, Stuttgart",
+    context: "Wohngebäudeversicherung, Stuttgart",
     stars: 5,
   },
   {
-    quote: "Mein Makler hat mir erklart, warum meine alte BU-Versicherung Lucken hatte. Jetzt bin ich richtig abgesichert und zahle sogar weniger.",
+    quote: "Mein Makler hat mir erklärt, warum meine alte BU-Versicherung Lücken hatte. Jetzt bin ich richtig abgesichert und zahle sogar weniger.",
     name: "Katharina B.",
-    context: "Berufsunfahigkeitsversicherung, Dusseldorf",
+    context: "Berufsunfähigkeitsversicherung, Düsseldorf",
     stars: 5,
   },
   {
-    quote: "Als alleinerziehende Mutter war mir wichtig, dass jemand meine Situation versteht. Mein OptiCheck-Makler hat genau das getan und die perfekte Losung gefunden.",
+    quote: "Als alleinerziehende Mutter war mir wichtig, dass jemand meine Situation versteht. Mein OptiCheck-Makler hat genau das getan und die perfekte Lösung gefunden.",
     name: "Lena F.",
     context: "Haftpflicht + Krankenversicherung, Leipzig",
     stars: 5,
   },
   {
-    quote: "Ich habe wochenlang Vergleichsportale durchforstet und kam nicht weiter. Ein SmartCheck und ich hatte einen Makler, der die Arbeit fur mich erledigt hat.",
+    quote: "Ich habe wochenlang Vergleichsportale durchforstet und kam nicht weiter. Ein SmartCheck und ich hatte einen Makler, der die Arbeit für mich erledigt hat.",
     name: "Michael D.",
     context: "Kfz-Versicherung, Dresden",
     stars: 5,
   },
   {
-    quote: "Nach meinem Umzug brauchte ich schnell eine neue Wohngebaudeversicherung. Vom SmartCheck bis zum Abschluss hat alles nur eine Woche gedauert.",
+    quote: "Nach meinem Umzug brauchte ich schnell eine neue Wohngebäudeversicherung. Vom SmartCheck bis zum Abschluss hat alles nur eine Woche gedauert.",
     name: "Petra G.",
-    context: "Wohngebaudeversicherung, Hannover",
+    context: "Wohngebäudeversicherung, Hannover",
     stars: 5,
   },
   {
-    quote: "Ich arbeite selbst in der Finanzbranche und habe trotzdem OptiCheck fur meine eigene Versicherung genutzt. Das Maklernetzwerk ist wirklich beeindruckend.",
+    quote: "Ich arbeite selbst in der Finanzbranche und habe trotzdem OptiCheck für meine eigene Versicherung genutzt. Das Maklernetzwerk ist wirklich beeindruckend.",
     name: "Christian L.",
     context: "Komplettcheck, Frankfurt",
     stars: 5,
   },
   {
-    quote: "Mit 25 hatte ich keine Ahnung von Versicherungen. Mein Makler hat mir alles in einfacher Sprache erklart und mir genau das empfohlen, was ich brauche.",
+    quote: "Mit 25 hatte ich keine Ahnung von Versicherungen. Mein Makler hat mir alles in einfacher Sprache erklärt und mir genau das empfohlen, was ich brauche.",
     name: "Sophie T.",
     context: "Erstversicherung, Berlin",
     stars: 5,
@@ -253,11 +271,30 @@ const testimonials = [
 
 /* ═══ SMARTCHECK SNAPSHOT ═══ */
 const smartCheckSnapshotFields = [
-  ["Versicherungsart", "Wohngebaudeversicherung"],
+  ["Versicherungsart", "Wohngebäudeversicherung"],
   ["Objektwert", "380.000 Euro"],
-  ["Wohnflache", "145 m2"],
+  ["Wohnfläche", "145 m²"],
   ["Vermittlungsweg", "SmartMatch zum Makler"],
 ] as const;
+
+/* ═══ TRUST CERTIFICATIONS ═══ */
+const trustCertifications = [
+  {
+    image: iso27001Badge,
+    title: "ISO 27001",
+    subtitle: "ISO Security Management",
+  },
+  {
+    image: soc2Badge,
+    title: "SOC 2 Type II",
+    subtitle: "SOC for Service Organizations",
+  },
+  {
+    image: gdprBadge,
+    title: "DSGVO",
+    subtitle: "Datenschutz-Grundverordnung",
+  },
+];
 
 /* ═══ ANIMATION PRESETS ═══ */
 const sectionMotion = {
@@ -289,6 +326,16 @@ function OptimizedImage({
   );
 }
 
+/* ═══ COMING SOON BADGE ═══ */
+function ComingSoonBadge() {
+  return (
+    <span className="inline-flex items-center gap-1.5 rounded-full bg-amber-50 border border-amber-200 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-amber-700">
+      <span className="h-1.5 w-1.5 rounded-full bg-amber-400 animate-pulse" />
+      Bald verfügbar
+    </span>
+  );
+}
+
 /* ═══ INSURANCE DIRECTORY SECTION ═══ */
 function InsuranceDirectorySection() {
   return (
@@ -298,33 +345,85 @@ function InsuranceDirectorySection() {
           <div className="max-w-2xl">
             <SectionEyebrow>Versicherungsverzeichnis</SectionEyebrow>
             <h2 className="mt-5 font-[Manrope] text-4xl font-extrabold tracking-[-0.04em] text-[#171A21] md:text-5xl">
-              Funf Versicherungswege. Ein smarterer Startpunkt.
+              Fünf Versicherungswege. Ein smarterer Startpunkt.
             </h2>
           </div>
           <p className="max-w-xl text-base leading-7 text-[#3A4A5D]">
-            Ob Eigenheim, Auto, Haftpflicht, Berufsunfahigkeit oder Gesundheit: wahlen Sie Ihr Ziel und SmartCheck erledigt die schwere Arbeit.
+            Ob Eigenheim, Auto, Haftpflicht, Berufsunfähigkeit oder Gesundheit: wählen Sie Ihr Ziel und SmartCheck erledigt die schwere Arbeit.
           </p>
         </div>
 
         <div className="mt-12 grid gap-7 lg:grid-cols-3 xl:grid-cols-5">
-          {insuranceOptions.map(({ icon: Icon, title, subtitle, href }) => (
-            <a
-              key={title}
-              href={href}
-              className="group relative flex h-full flex-col overflow-hidden rounded-[1.8rem] border border-[#E0E8F1] bg-white shadow-[0_18px_50px_rgba(13,30,56,0.06)] transition hover:-translate-y-1 hover:border-[#BFD5F2] hover:shadow-[0_24px_70px_rgba(13,30,56,0.10)]"
-            >
-              <div className="flex flex-1 flex-col p-7 sm:p-8">
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[linear-gradient(135deg,#EEF5FF_0%,#EAFBF6_100%)] text-[#2F6BFF] transition group-hover:bg-[linear-gradient(135deg,#2F6BFF_0%,#25C685_100%)] group-hover:text-white">
-                  <Icon className="h-5 w-5" />
+          {insuranceOptions.map(({ icon: Icon, title, subtitle, href, active, comingSoon }) => {
+            const Wrapper = active ? "a" : "div";
+            return (
+              <Wrapper
+                key={title}
+                {...(active ? { href } : {})}
+                className={`group relative flex h-full flex-col overflow-hidden rounded-[1.8rem] border bg-white shadow-[0_18px_50px_rgba(13,30,56,0.06)] transition ${
+                  active
+                    ? "border-[#E0E8F1] hover:-translate-y-1 hover:border-[#BFD5F2] hover:shadow-[0_24px_70px_rgba(13,30,56,0.10)] cursor-pointer"
+                    : "border-[#E8E4DE] opacity-75 cursor-default"
+                }`}
+              >
+                <div className="flex flex-1 flex-col p-7 sm:p-8">
+                  <div className="flex items-center justify-between">
+                    <div className={`flex h-12 w-12 items-center justify-center rounded-2xl transition ${
+                      active
+                        ? "bg-[linear-gradient(135deg,#EEF5FF_0%,#EAFBF6_100%)] text-[#2F6BFF] group-hover:bg-[linear-gradient(135deg,#2F6BFF_0%,#25C685_100%)] group-hover:text-white"
+                        : "bg-gray-100 text-gray-400"
+                    }`}>
+                      <Icon className="h-5 w-5" />
+                    </div>
+                    {comingSoon && <ComingSoonBadge />}
+                  </div>
+                  <h3 className={`mt-5 font-[Manrope] text-xl font-bold tracking-[-0.03em] ${active ? "text-[#171A21]" : "text-gray-500"}`}>{title}</h3>
+                  <p className={`mt-3 text-sm leading-7 ${active ? "text-[#5B6C85]" : "text-gray-400"}`}>{subtitle}</p>
+                  <div className={`mt-auto pt-5 inline-flex items-center text-sm font-semibold ${
+                    active ? "text-[#2F6BFF] group-hover:text-[#1D8C92]" : "text-gray-400"
+                  }`}>
+                    {active ? (
+                      <>Zum Wohngebäude-Check <ChevronRight className="ml-1 h-4 w-4" /></>
+                    ) : (
+                      <>Demnächst verfügbar</>
+                    )}
+                  </div>
                 </div>
-                <h3 className="mt-5 font-[Manrope] text-xl font-bold tracking-[-0.03em] text-[#171A21]">{title}</h3>
-                <p className="mt-3 text-sm leading-7 text-[#5B6C85]">{subtitle}</p>
-                <div className="mt-auto pt-5 inline-flex items-center text-sm font-semibold text-[#2F6BFF] group-hover:text-[#1D8C92]">
-                  Zum SmartCheck <ChevronRight className="ml-1 h-4 w-4" />
+              </Wrapper>
+            );
+          })}
+        </div>
+      </div>
+    </motion.section>
+  );
+}
+
+/* ═══ TRUST CERTIFICATIONS SECTION ═══ */
+function TrustCertificationsSection() {
+  return (
+    <motion.section {...sectionMotion} className="border-b border-[#E6DED3] bg-white py-12 md:py-14">
+      <div className="container">
+        <div className="flex flex-col items-center gap-8">
+          <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#6B7B90]">Zertifiziert und geschützt</p>
+          <div className="grid w-full gap-5 sm:grid-cols-3">
+            {trustCertifications.map((cert) => (
+              <div
+                key={cert.title}
+                className="flex items-center gap-5 rounded-[1.4rem] border border-[#E4EAF2] bg-[#F8FAFB] px-6 py-5 shadow-[0_8px_24px_rgba(15,33,61,0.04)]"
+              >
+                <img
+                  src={cert.image}
+                  alt={cert.title}
+                  className="h-14 w-14 shrink-0 rounded-lg object-contain"
+                  loading="lazy"
+                />
+                <div>
+                  <p className="font-[Manrope] text-base font-bold tracking-[-0.02em] text-[#171A21]">{cert.title}</p>
+                  <p className="mt-0.5 text-sm text-[#5B6C85]">{cert.subtitle}</p>
                 </div>
               </div>
-            </a>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </motion.section>
@@ -344,7 +443,7 @@ export default function Home() {
     }
     descriptionTag.setAttribute(
       "content",
-      "28.000+ Deutsche nutzen OptiCheck, um mit gepruften Versicherungsmaklern verbunden zu werden und bei Wohngebaude-, Kfz-, Haftpflicht-, BU- und Krankenversicherung zu sparen. Kostenloser SmartCheck in 2 Minuten."
+      "28.000+ Deutsche nutzen OptiCheck, um mit geprüften Versicherungsmaklern verbunden zu werden und bei Wohngebäude-, Kfz-, Haftpflicht-, BU- und Krankenversicherung zu sparen. Kostenloser SmartCheck in 2 Minuten."
     );
   }, []);
 
@@ -393,7 +492,7 @@ export default function Home() {
                     </h1>
 
                     <p className="mt-6 max-w-2xl text-lg leading-8 text-white/78 md:text-[1.15rem]">
-                      Die meisten Deutschen zahlen zu viel fur ihre Versicherungen, weil sie nie die richtigen Optionen sehen. OptiCheck andert das. In 2 Minuten analysiert SmartCheck Ihr Profil, vermittelt Sie an einen Spezialisten und bringt Sie auf den schnellsten Weg zum besseren Schutz.
+                      Die meisten Deutschen zahlen zu viel für ihre Versicherungen, weil sie nie die richtigen Optionen sehen. OptiCheck ändert das. In 2 Minuten analysiert SmartCheck Ihr Profil, vermittelt Sie an einen Spezialisten und bringt Sie auf den schnellsten Weg zum besseren Schutz.
                     </p>
 
                     <div className="mt-6 flex flex-wrap gap-3">
@@ -405,18 +504,18 @@ export default function Home() {
                     </div>
 
                     <div className="mt-9 flex flex-col gap-4 sm:flex-row">
-                      <a href="#versicherungen">
+                      <a href={WOHNGEBAUDE_CHECK_URL}>
                         <Button className="group h-13 rounded-full bg-[#25C685] px-7 text-base font-semibold text-white shadow-[0_24px_72px_rgba(37,198,133,0.30)] transition hover:scale-[1.01] hover:brightness-[1.03]">
-                          Mein bestes Angebot finden
+                          Wohngebäude-Check starten
                           <ArrowRight className="ml-2 h-4 w-4 transition group-hover:translate-x-1" />
                         </Button>
                       </a>
-                      <a href="#versicherungen">
+                      <a href={WOHNGEBAUDE_CHECK_URL}>
                         <Button
                           variant="outline"
                           className="h-13 rounded-full border-white/18 bg-white/8 px-7 text-base text-white shadow-[0_10px_28px_rgba(4,14,34,0.14)] backdrop-blur-sm hover:border-[#25C685] hover:bg-white/12 hover:text-white"
                         >
-                          Alle Versicherungsarten
+                          Jetzt Versicherung prüfen
                         </Button>
                       </a>
                     </div>
@@ -442,7 +541,7 @@ export default function Home() {
                       <div className="relative">
                         <OptimizedImage
                           src={heroFamily}
-                          alt="Deutsche Familie vor ihrem Eigenheim in einer ruhigen Wohnstrasse"
+                          alt="Deutsche Familie vor ihrem Eigenheim in einer ruhigen Wohnstraße"
                           className="h-[245px] w-full object-cover object-center"
                           sizes="(max-width: 1279px) 100vw, 520px"
                           width={1040} height={490} loading="eager" fetchPriority="high" decoding="sync"
@@ -452,7 +551,7 @@ export default function Home() {
                             <Clock3 className="h-3.5 w-3.5" /> Ca. 2 Minuten SmartCheck
                           </div>
                           <p className="mt-3 max-w-sm text-sm leading-6 text-white/90">
-                            Wohngebaude, Kfz, Haftpflicht, BU und Krankenversicherung. Eine smarte Anfrage deckt alles ab.
+                            Wohngebäude, Kfz, Haftpflicht, BU und Krankenversicherung. Eine smarte Anfrage deckt alles ab.
                           </p>
                         </div>
                       </div>
@@ -476,26 +575,42 @@ export default function Home() {
                         </div>
 
                         <div className="rounded-[1.5rem] border border-[#E6DED3] bg-[#FBF8F3] p-6">
-                          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#4C6FFF]">Wahlen Sie Ihren Versicherungsweg</p>
+                          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#4C6FFF]">Wählen Sie Ihren Versicherungsweg</p>
                           <h2 className="mt-3 font-[Manrope] text-[1.65rem] font-bold tracking-[-0.03em] text-[#171A21]">
-                            Ziel wahlen. Wir kummern uns um den Rest.
+                            Ziel wählen. Wir kümmern uns um den Rest.
                           </h2>
                           <div className="mt-6 grid gap-4">
-                            {insuranceOptions.map(({ icon: Icon, title, href }) => (
-                              <a
-                                key={title}
-                                href={href}
-                                className="group flex items-center justify-between rounded-[1.2rem] border border-[#E3EAF3] bg-white px-5 py-5 shadow-[0_12px_30px_rgba(15,33,61,0.04)] transition hover:-translate-y-0.5 hover:border-[#BFD5F2] hover:shadow-[0_18px_36px_rgba(15,33,61,0.08)]"
-                              >
-                                <div className="flex items-center gap-4">
-                                  <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[linear-gradient(135deg,#EEF5FF_0%,#EAFBF6_100%)] text-[#2F6BFF] transition group-hover:bg-[linear-gradient(135deg,#2F6BFF_0%,#25C685_100%)] group-hover:text-white">
-                                    <Icon className="h-5 w-5" />
+                            {insuranceOptions.map(({ icon: Icon, title, href, active, comingSoon }) => {
+                              const Wrapper = active ? "a" : "div";
+                              return (
+                                <Wrapper
+                                  key={title}
+                                  {...(active ? { href } : {})}
+                                  className={`group flex items-center justify-between rounded-[1.2rem] border px-5 py-5 shadow-[0_12px_30px_rgba(15,33,61,0.04)] transition ${
+                                    active
+                                      ? "border-[#E3EAF3] bg-white hover:-translate-y-0.5 hover:border-[#BFD5F2] hover:shadow-[0_18px_36px_rgba(15,33,61,0.08)] cursor-pointer"
+                                      : "border-[#EDEAE6] bg-gray-50/60 cursor-default"
+                                  }`}
+                                >
+                                  <div className="flex items-center gap-4">
+                                    <div className={`flex h-11 w-11 items-center justify-center rounded-2xl transition ${
+                                      active
+                                        ? "bg-[linear-gradient(135deg,#EEF5FF_0%,#EAFBF6_100%)] text-[#2F6BFF] group-hover:bg-[linear-gradient(135deg,#2F6BFF_0%,#25C685_100%)] group-hover:text-white"
+                                        : "bg-gray-100 text-gray-400"
+                                    }`}>
+                                      <Icon className="h-5 w-5" />
+                                    </div>
+                                    <div className="flex flex-col gap-1">
+                                      <span className={`font-[Manrope] text-base font-bold ${active ? "text-[#171A21]" : "text-gray-500"}`}>{title}</span>
+                                      {comingSoon && <ComingSoonBadge />}
+                                    </div>
                                   </div>
-                                  <span className="font-[Manrope] text-base font-bold text-[#171A21]">{title}</span>
-                                </div>
-                                <ChevronRight className="h-5 w-5 text-[#2F6BFF] transition group-hover:translate-x-1 group-hover:text-[#21B6A8]" />
-                              </a>
-                            ))}
+                                  {active && (
+                                    <ChevronRight className="h-5 w-5 text-[#2F6BFF] transition group-hover:translate-x-1 group-hover:text-[#21B6A8]" />
+                                  )}
+                                </Wrapper>
+                              );
+                            })}
                           </div>
                         </div>
                       </div>
@@ -517,10 +632,11 @@ export default function Home() {
           </div>
         </section>
 
+        {/* ═══ TRUST CERTIFICATIONS ═══ */}
+        <TrustCertificationsSection />
+
         {/* ═══ INSURANCE DIRECTORY ═══ */}
         <InsuranceDirectorySection />
-
-
 
         {/* ═══ SMARTCHECK SNAPSHOT ═══ */}
         <motion.section id="smartcheck" {...sectionMotion} className="relative border-b border-[#E6DED3] bg-white py-20 md:py-20">
@@ -532,7 +648,7 @@ export default function Home() {
                   Wissen Sie genau, wo Sie stehen, bevor Sie mit einem Anbieter sprechen.
                 </h2>
                 <p className="mt-5 max-w-xl text-lg leading-8 text-[#3A4A5D]">
-                  SmartCheck verwandelt ein paar ehrliche Antworten in eine personalisierte Versicherungsanalyse. Sie sehen Ihre besten Optionen, mogliche Lucken und den Makler, der am besten zu Ihrer Situation passt. Alles in unter 2 Minuten.
+                  SmartCheck verwandelt ein paar ehrliche Antworten in eine personalisierte Versicherungsanalyse. Sie sehen Ihre besten Optionen, mögliche Lücken und den Makler, der am besten zu Ihrer Situation passt. Alles in unter 2 Minuten.
                 </p>
               </div>
 
@@ -540,7 +656,7 @@ export default function Home() {
                 <div className="relative overflow-hidden rounded-[1.6rem] border border-[#E6EEF7] bg-[#FBF8F3]">
                   <OptimizedImage
                     src={propertyGerman}
-                    alt="Deutsche Wohnsiedlung mit traditionellen Dachern aus der Vogelperspektive"
+                    alt="Deutsche Wohnsiedlung mit traditionellen Dächern aus der Vogelperspektive"
                     className="h-[240px] w-full object-cover object-center"
                     sizes="(max-width: 1024px) 100vw, 48vw" width={960} height={480}
                   />
@@ -571,15 +687,15 @@ export default function Home() {
                           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#4C6FFF]">Ihr Ergebnis</p>
                           <p className="mt-1 text-lg font-semibold text-[#171A21]">Qualifiziert: Maklervermittlung bereit</p>
                           <p className="mt-2 text-sm leading-6 text-[#3A4A5D]">
-                            Sie sind vorqualifiziert. Ein spezialisierter Makler wird Ihr Profil prufen und sich mit massgeschneiderten Optionen bei Ihnen melden. Keine generischen Listen, kein Spam.
+                            Sie sind vorqualifiziert. Ein spezialisierter Makler wird Ihr Profil prüfen und sich mit maßgeschneiderten Optionen bei Ihnen melden. Keine generischen Listen, kein Spam.
                           </p>
                         </div>
                       </div>
                     </div>
 
-                    <a href="#versicherungen">
+                    <a href={WOHNGEBAUDE_CHECK_URL}>
                       <Button className="h-13 w-full rounded-full bg-[linear-gradient(90deg,#2F6BFF_0%,#2C86F7_28%,#21B6A8_68%,#25C685_100%)] text-base font-semibold text-white shadow-[0_26px_64px_rgba(47,107,255,0.24)] hover:brightness-[1.03]">
-                        SmartCheck starten
+                        Wohngebäude-Check starten
                       </Button>
                     </a>
                   </div>
@@ -590,7 +706,7 @@ export default function Home() {
         </motion.section>
 
         {/* ═══ WHY OPTICHECK IS DIFFERENT ═══ */}
-        <motion.section id="uber-uns" {...sectionMotion} className="relative border-b border-[#E6DED3] bg-white py-20 md:py-22">
+        <motion.section id="ueber-uns" {...sectionMotion} className="relative border-b border-[#E6DED3] bg-white py-20 md:py-22">
           <div className="container grid gap-8 lg:grid-cols-[0.88fr_1.12fr] lg:items-center">
             <div>
               <SectionEyebrow>Warum OptiCheck anders ist</SectionEyebrow>
@@ -598,7 +714,7 @@ export default function Home() {
                 Das ist kein weiteres Vergleichsportal. Das ist Ihr Vorteil.
               </h2>
               <p className="mt-5 max-w-xl text-lg leading-8 text-[#3A4A5D]">
-                Vergleichstabellen zeigen Ihnen Preise. OptiCheck zeigt Ihnen den Weg. Wir kombinieren KI-gestutzte Vorqualifizierung mit lizenzierten Maklern, die in Ihrem Namen verhandeln.
+                Vergleichstabellen zeigen Ihnen Preise. OptiCheck zeigt Ihnen den Weg. Wir kombinieren KI-gestützte Vorqualifizierung mit lizenzierten Maklern, die in Ihrem Namen verhandeln.
               </p>
             </div>
 
@@ -626,11 +742,11 @@ export default function Home() {
                   Deutschlandweites Vertrauen
                 </span>
                 <h2 className="mt-6 font-[Manrope] text-4xl font-extrabold tracking-[-0.04em] text-white md:text-5xl">
-                  Gebaut fur die Art, wie Deutsche sich wirklich versichern.
+                  Gebaut für die Art, wie Deutsche sich wirklich versichern.
                 </h2>
               </div>
               <p className="max-w-xl text-base leading-7 text-[#8BA4C4]">
-                Von Berliner Altbauwohnungen bis zu bayerischen Einfamilienhausern: OptiCheck versteht die deutsche Versicherungslandschaft und verbindet Sie mit Maklern, die Ihren lokalen Markt kennen.
+                Von Berliner Altbauwohnungen bis zu bayerischen Einfamilienhäusern: OptiCheck versteht die deutsche Versicherungslandschaft und verbindet Sie mit Maklern, die Ihren lokalen Markt kennen.
               </p>
             </div>
 
@@ -670,7 +786,7 @@ export default function Home() {
             <div className="overflow-hidden rounded-[2rem] border border-[#E3DACD] bg-white shadow-[0_24px_80px_rgba(23,26,33,0.08)]">
               <OptimizedImage
                 src={consumerGuidance}
-                alt="Deutsches Paar pruft Versicherungsunterlagen gemeinsam auf dem Sofa"
+                alt="Deutsches Paar prüft Versicherungsunterlagen gemeinsam auf dem Sofa"
                 className="h-full min-h-[420px] w-full object-cover"
                 sizes="(max-width: 1024px) 100vw, 52vw" width={960} height={640}
               />
@@ -679,14 +795,14 @@ export default function Home() {
             <div>
               <SectionEyebrow>Verbraucherberatung</SectionEyebrow>
               <h2 className="mt-6 font-[Manrope] text-4xl font-extrabold tracking-[-0.04em] text-[#171A21] md:text-5xl">
-                Sie verdienen mehr als eine Vergleichstabelle und "viel Gluck."
+                Sie verdienen mehr als eine Vergleichstabelle und "viel Glück."
               </h2>
               <p className="mt-5 text-lg leading-8 text-[#3A4A5D]">
                 Andere Plattformen werfen Sie in ein Meer von Tarifen und lassen Sie allein. OptiCheck qualifiziert Sie zuerst, vermittelt Sie an einen Makler, der auf Ihren Versicherungstyp spezialisiert ist, und gibt Ihnen einen Menschen, der wirklich ans Telefon geht.
               </p>
               <div className="mt-10 space-y-5">
                 {[
-                  "Vergleichen Sie echte Optionen fur Wohngebaude, Kfz, Haftpflicht, BU und Krankenversicherung an einem Ort.",
+                  "Vergleichen Sie echte Optionen für Wohngebäude, Kfz, Haftpflicht, BU und Krankenversicherung an einem Ort.",
                   "Kennen Sie Ihren Versicherungsbedarf, bevor Sie mit jemandem sprechen. Keine SCHUFA-Abfrage erforderlich.",
                   "Werden Sie mit einem lizenzierten Makler verbunden, der genau auf das spezialisiert ist, was Sie brauchen.",
                 ].map((point) => (
@@ -742,10 +858,10 @@ export default function Home() {
             <div>
               <SectionEyebrow>OptiCheck vs. typische Vergleichsportale</SectionEyebrow>
               <h2 className="mt-6 font-[Manrope] text-4xl font-extrabold tracking-[-0.04em] text-[#171A21] md:text-5xl">
-                Sehen Sie, warum 28.000+ Deutsche OptiCheck gewahlt haben.
+                Sehen Sie, warum 28.000+ Deutsche OptiCheck gewählt haben.
               </h2>
               <p className="mt-5 max-w-xl text-lg leading-8 text-[#3A4A5D]">
-                Der Unterschied ist nicht kosmetisch. OptiCheck qualifiziert Sie vor, vermittelt Sie an einen echten Makler und bietet Ihnen begleitete Unterstutzung bei jedem Schritt.
+                Der Unterschied ist nicht kosmetisch. OptiCheck qualifiziert Sie vor, vermittelt Sie an einen echten Makler und bietet Ihnen begleitete Unterstützung bei jedem Schritt.
               </p>
             </div>
 
@@ -777,7 +893,7 @@ export default function Home() {
                 </h2>
               </div>
               <p className="max-w-xl text-base leading-7 text-[#5A6A83]">
-                Nehmen Sie nicht unser Wort dafur. Hier ist, was passiert ist, als diese Deutschen aufgehort haben, Tarife zu vergleichen, und angefangen haben, sich mit dem richtigen Makler verbinden zu lassen.
+                Nehmen Sie nicht unser Wort dafür. Hier ist, was passiert ist, als diese Deutschen aufgehört haben, Tarife zu vergleichen, und angefangen haben, sich mit dem richtigen Makler verbinden zu lassen.
               </p>
             </div>
 
@@ -813,13 +929,13 @@ export default function Home() {
                 Ihr Makler: Experte, Berater, Verhandler.
               </h2>
               <p className="mt-5 text-lg leading-8 text-[#3A4A5D]">
-                Unsere Makler sind keine Verkaufer. Sie sind lizenzierte Spezialisten, die Ihren Versicherungsbedarf analysieren, die besten Konditionen verhandeln und Sie durch den gesamten Prozess begleiten.
+                Unsere Makler sind keine Verkäufer. Sie sind lizenzierte Spezialisten, die Ihren Versicherungsbedarf analysieren, die besten Konditionen verhandeln und Sie durch den gesamten Prozess begleiten.
               </p>
               <div className="mt-8 grid gap-4">
                 {[
-                  { title: "IHK-lizenziert und gepruft", desc: "Alle Makler in unserem Netzwerk sind nach §34d GewO zugelassen und IHK-registriert." },
-                  { title: "Unabhangig und anbieterubergreifend", desc: "Zugang zu uber 120 Versicherungsgesellschaften fur eine wirklich unabhangige Beratung." },
-                  { title: "Personlich und erreichbar", desc: "Kein Callcenter, kein Chatbot. Ihr Makler ist ein echter Mensch mit einer echten Telefonnummer." },
+                  { title: "IHK-lizenziert und geprüft", desc: "Alle Makler in unserem Netzwerk sind nach §34d GewO zugelassen und IHK-registriert." },
+                  { title: "Unabhängig und anbieterübergreifend", desc: "Zugang zu über 120 Versicherungsgesellschaften für eine wirklich unabhängige Beratung." },
+                  { title: "Persönlich und erreichbar", desc: "Kein Callcenter, kein Chatbot. Ihr Makler ist ein echter Mensch mit einer echten Telefonnummer." },
                 ].map((item) => (
                   <div key={item.title} className="rounded-[1.6rem] border border-[#E4EAF2] bg-[#FBFDFE] p-6 shadow-[0_10px_28px_rgba(15,33,61,0.04)]">
                     <h3 className="font-[Manrope] text-lg font-bold tracking-[-0.03em] text-[#171A21]">{item.title}</h3>
@@ -832,7 +948,7 @@ export default function Home() {
             <div className="overflow-hidden rounded-[2rem] border border-[#E3DACD] bg-white shadow-[0_24px_80px_rgba(23,26,33,0.08)]">
               <OptimizedImage
                 src={brokerMeeting}
-                alt="Versicherungsmaklerin berat ein junges Paar in einem modernen Buro"
+                alt="Versicherungsmaklerin berät ein junges Paar in einem modernen Büro"
                 className="h-full min-h-[420px] w-full object-cover"
                 sizes="(max-width: 1024px) 100vw, 50vw" width={960} height={640}
               />
@@ -853,15 +969,15 @@ export default function Home() {
                 28.000+ Deutsche haben SmartCheck bereits genutzt, um den richtigen Makler zu finden und bei ihren Versicherungen zu sparen. Die einzige Frage ist: Worauf warten Sie noch?
               </p>
               <div className="mt-9 flex flex-col gap-4 sm:flex-row">
-                <a href="#versicherungen">
+                <a href={WOHNGEBAUDE_CHECK_URL}>
                   <Button className="group h-13 rounded-full bg-[#25C685] px-7 text-base font-semibold text-white shadow-[0_24px_72px_rgba(37,198,133,0.30)] transition hover:scale-[1.01] hover:brightness-[1.03]">
-                    Mein bestes Angebot finden
+                    Wohngebäude-Check starten
                     <ArrowRight className="ml-2 h-4 w-4 transition group-hover:translate-x-1" />
                   </Button>
                 </a>
-                <a href="#smartcheck">
+                <a href={WOHNGEBAUDE_CHECK_URL}>
                   <Button variant="outline" className="h-13 rounded-full border-white/30 bg-white/8 px-7 text-base text-white hover:bg-white/14">
-                    Kostenlosen SmartCheck starten
+                    Jetzt Versicherung prüfen
                   </Button>
                 </a>
               </div>
@@ -879,7 +995,7 @@ export default function Home() {
               <div className="overflow-hidden rounded-[1.8rem] border border-white/10 bg-white/6 backdrop-blur-sm">
                 <OptimizedImage
                   src={brokerMeeting}
-                  alt="Versicherungsmaklerin im Beratungsgesprach"
+                  alt="Versicherungsmaklerin im Beratungsgespräch"
                   className="h-full min-h-[250px] w-full object-cover"
                   sizes="(max-width: 640px) 100vw, 50vw" width={720} height={500}
                 />
