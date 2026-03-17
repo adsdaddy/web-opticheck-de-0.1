@@ -715,6 +715,62 @@ export default function Home() {
           </div>
         </motion.section>
 
+        {/* ═══ SMARTCHECK BENEFITS ═══ */}
+        <motion.section {...sectionMotion} className="relative bg-[#FBF8F3] py-20 md:py-24 border-b border-[#E6DED3]">
+          <div className="container">
+            <div className="text-center max-w-2xl mx-auto">
+              <SectionEyebrow>Warum SmartCheck</SectionEyebrow>
+              <h2 className="mt-6 font-[Manrope] text-4xl font-extrabold tracking-[-0.04em] text-[#171A21] md:text-5xl">
+                Drei Gründe, warum SmartCheck den Unterschied macht.
+              </h2>
+            </div>
+
+            <div className="mt-14 grid gap-6 md:grid-cols-3">
+              {/* Benefit 1: Zeitersparnis */}
+              <div className="group relative overflow-hidden rounded-[2rem] border border-[#E2D8CA] bg-white p-8 shadow-[0_18px_55px_rgba(23,26,33,0.06)] transition hover:shadow-[0_24px_72px_rgba(23,26,33,0.10)] hover:border-[#2F6BFF]/20">
+                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[linear-gradient(135deg,#2F6BFF_0%,#4C8FFF_100%)] shadow-[0_12px_28px_rgba(47,107,255,0.25)]">
+                  <Clock3 className="h-6 w-6 text-white" />
+                </div>
+                <h3 className="mt-6 font-[Manrope] text-xl font-bold tracking-[-0.03em] text-[#171A21]">
+                  In 2 Minuten analysiert
+                </h3>
+                <p className="mt-3 text-base leading-7 text-[#5B6C85]">
+                  Kein stundenlanges Vergleichen mehr. SmartCheck erfasst Ihre Situation in wenigen Schritten und liefert sofort eine fundierte Einschätzung – schneller als jeder herkömmliche Versicherungsvergleich.
+                </p>
+                <div className="mt-6 h-1 w-12 rounded-full bg-[linear-gradient(90deg,#2F6BFF_0%,#4C8FFF_100%)] transition-all group-hover:w-20" />
+              </div>
+
+              {/* Benefit 2: Persönliche Vermittlung */}
+              <div className="group relative overflow-hidden rounded-[2rem] border border-[#E2D8CA] bg-white p-8 shadow-[0_18px_55px_rgba(23,26,33,0.06)] transition hover:shadow-[0_24px_72px_rgba(23,26,33,0.10)] hover:border-[#25C685]/20">
+                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[linear-gradient(135deg,#25C685_0%,#2ED89A_100%)] shadow-[0_12px_28px_rgba(37,198,133,0.25)]">
+                  <UserRoundSearch className="h-6 w-6 text-white" />
+                </div>
+                <h3 className="mt-6 font-[Manrope] text-xl font-bold tracking-[-0.03em] text-[#171A21]">
+                  Passgenauer Makler
+                </h3>
+                <p className="mt-3 text-base leading-7 text-[#5B6C85]">
+                  SmartCheck vermittelt Sie nicht an irgendeinen Makler, sondern an einen Spezialisten, der genau auf Ihre Versicherungsart und Region spezialisiert ist. So erhalten Sie Beratung, die wirklich zu Ihnen passt.
+                </p>
+                <div className="mt-6 h-1 w-12 rounded-full bg-[linear-gradient(90deg,#25C685_0%,#2ED89A_100%)] transition-all group-hover:w-20" />
+              </div>
+
+              {/* Benefit 3: Datenschutz */}
+              <div className="group relative overflow-hidden rounded-[2rem] border border-[#E2D8CA] bg-white p-8 shadow-[0_18px_55px_rgba(23,26,33,0.06)] transition hover:shadow-[0_24px_72px_rgba(23,26,33,0.10)] hover:border-[#171A21]/10">
+                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[linear-gradient(135deg,#171A21_0%,#2A3040_100%)] shadow-[0_12px_28px_rgba(23,26,33,0.25)]">
+                  <Lock className="h-6 w-6 text-white" />
+                </div>
+                <h3 className="mt-6 font-[Manrope] text-xl font-bold tracking-[-0.03em] text-[#171A21]">
+                  DSGVO-konform & sicher
+                </h3>
+                <p className="mt-3 text-base leading-7 text-[#5B6C85]">
+                  Ihre Daten werden SSL-verschlüsselt übertragen und ausschließlich zur Maklervermittlung genutzt. Kein Weiterverkauf, keine Werbung, keine versteckten Drittanbieter. Ihre Privatsphäre hat bei uns oberste Priorität.
+                </p>
+                <div className="mt-6 h-1 w-12 rounded-full bg-[linear-gradient(90deg,#171A21_0%,#3A4A5D_100%)] transition-all group-hover:w-20" />
+              </div>
+            </div>
+          </div>
+        </motion.section>
+
         {/* ═══ WHY OPTICHECK IS DIFFERENT ═══ */}
         <motion.section id="ueber-uns" {...sectionMotion} className="relative border-b border-[#E6DED3] bg-white py-20 md:py-22">
           <div className="container grid gap-8 lg:grid-cols-[0.88fr_1.12fr] lg:items-center">
