@@ -1035,16 +1035,18 @@ export default function Home() {
             </div>
             <div className="mt-10 flex flex-wrap items-center justify-center gap-6 md:gap-10">
               {[
-                { name: "Allianz", color: "#003781" },
-                { name: "ERGO", color: "#C8102E" },
-                { name: "AXA", color: "#00008F" },
-                { name: "Debeka", color: "#005CA9" },
-                { name: "ARAG", color: "#003A70" },
-                { name: "HanseMerkur", color: "#006341" },
-                { name: "R+V", color: "#003366" },
-                { name: "HUK-COBURG", color: "#1D428A" },
-                { name: "DEVK", color: "#D4A843" },
-                { name: "Gothaer", color: "#00573F" },
+                { name: "VHV", color: "#003781" },
+                { name: "DOMCURA", color: "#C8102E" },
+                { name: "Rhion", color: "#00008F" },
+                { name: "Janitos", color: "#005CA9" },
+                { name: "InterRisk", color: "#003A70" },
+                { name: "degenia", color: "#006341" },
+                { name: "Interlloyd", color: "#003366" },
+                { name: "Häger", color: "#1D428A" },
+                { name: "Schleswiger", color: "#0D6E3F" },
+                { name: "NV Versicherungen", color: "#D4A843" },
+                { name: "Grundeigentümer", color: "#00573F" },
+                { name: "Konzept & Marketing", color: "#4A4A4A" },
               ].map((company) => (
                 <div
                   key={company.name}
