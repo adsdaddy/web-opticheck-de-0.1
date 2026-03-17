@@ -122,10 +122,10 @@ const insuranceOptions = [
 
 /* ═══ METRICS ═══ */
 const metrics = [
-  { label: "Deutsche vermittelt", value: "28.000+" },
-  { label: "Versicherungspartner", value: "120+" },
-  { label: "Geprüfte Makler", value: "85+" },
-  { label: "Jahre Erfahrung", value: "8+" },
+  { label: "Kunden vermittelt", value: "824+" },
+  { label: "Versicherungspartner", value: "48+" },
+  { label: "Geprüfte Makler", value: "67+" },
+  { label: "Kundenzufriedenheit", value: "4,8/5" },
 ];
 
 /* ═══ TRUST CHIPS ═══ */
@@ -136,9 +136,9 @@ const heroTrustChips = [
 ];
 
 const trustBadges = [
-  "Bankverschlüsselte Verbindung: Ihre Daten sind jederzeit sicher",
-  "Vermittlung an lizenzierte Makler, kein Verkauf an zufällige Anbieter",
-  "Eine 2-Minuten-Anfrage deckt alle Versicherungsbereiche ab",
+  "SSL-verschlüsselt und DSGVO-konform: Ihre Daten sind jederzeit geschützt",
+  "Vermittlung an zertifizierte OptiCheck Makler, kein Verkauf an zufällige Anbieter",
+  "Versicherungsangebot in nur 2 Minuten anfordern",
   "Persönliche Rückmeldung innerhalb weniger Stunden, keine automatisierten E-Mails",
 ];
 
@@ -146,8 +146,8 @@ const trustBadges = [
 const pillars = [
   {
     icon: Sparkles,
-    title: "Intelligente Vorqualifizierung",
-    copy: "SmartCheck analysiert Ihr Versicherungsprofil in Sekunden und filtert irrelevante Angebote heraus, sodass Sie nur passende Optionen sehen.",
+    title: "Intelligente Analyse",
+    copy: "SmartCheck analysiert Ihre Daten in Sekunden und verbindet Sie mit einem Spezialisten für Ihr Anliegen, sodass Sie bestmöglich beraten werden.",
   },
   {
     icon: HeartHandshake,
@@ -157,7 +157,7 @@ const pillars = [
   {
     icon: ShieldCheck,
     title: "Vertrauen, das Sie spüren",
-    copy: "Verschlüsselte Daten, transparente Prozesse und keine versteckten Kosten. OptiCheck wurde für die Entscheidungen gebaut, die wirklich zählen.",
+    copy: "Verschlüsselte Daten, transparente Prozesse und für Sie komplett kostenlos. OptiCheck wurde gebaut, um Sie bei der Entscheidungsfindung zu unterstützen und optimal zu beraten.",
   },
 ];
 
@@ -171,7 +171,7 @@ const steps = [
   {
     number: "02",
     title: "Wir finden Ihre beste Option",
-    copy: "SmartCheck gleicht Ihr Profil mit über 120 Versicherungspartnern ab und zeigt Ihnen nur die Wege, die sich wirklich lohnen.",
+    copy: "SmartCheck gleicht Ihr Profil mit über 67 Versicherungspartnern ab und zeigt Ihnen nur die Wege, die sich wirklich lohnen.",
   },
   {
     number: "03",
@@ -187,9 +187,9 @@ const steps = [
 
 /* ═══ COMPARISON ═══ */
 const comparisonRows = [
-  { feature: "Vorqualifizierung", opticheck: "KI-gestützt in 2 Minuten", typical: "Einfaches Formular oder keine" },
+  { feature: "Datenerfassung", opticheck: "KI-gestützt in 2 Minuten", typical: "Generisch und unpräzise" },
   { feature: "Persönliche Betreuung", opticheck: "Lizenzierter Makler ruft Sie an", typical: "Self-Service oder Chatbot" },
-  { feature: "Anbietervergleich", opticheck: "120+ Partner, maklergesteuert", typical: "Gesponserte Ergebnisse" },
+  { feature: "Anbietervergleich", opticheck: "48+ Partner, maklergesteuert", typical: "Gesponserte Ergebnisse" },
   { feature: "Ihr Erlebnis", opticheck: "Geführt, persönlich, premium", typical: "Vergleichstabelle und viel Glück" },
 ];
 
@@ -202,27 +202,27 @@ const testimonials = [
     stars: 5,
   },
   {
-    quote: "Als Selbstständiger ist es schwer, die richtige BU-Versicherung zu finden. Mein OptiCheck-Makler wusste genau, welche Anbieter meine Situation verstehen.",
+    quote: "Unser Haus ist über 30 Jahre alt und wir wussten nicht, ob wir richtig versichert waren. Der OptiCheck-Makler hat alles geprüft und uns eine bessere Police mit erweitertem Elementarschutz vermittelt.",
     name: "Thomas K.",
-    context: "Berufsunfähigkeitsversicherung, Hamburg",
+    context: "Wohngebäudeversicherung, Hamburg",
     stars: 5,
   },
   {
-    quote: "Der SmartCheck hat zwei Minuten gedauert. Am selben Nachmittag hatte ich einen Makler, der mir 340 Euro im Jahr bei der Kfz-Versicherung gespart hat.",
+    quote: "Der SmartCheck hat zwei Minuten gedauert. Am selben Nachmittag hatte ich einen Makler, der mir 380 Euro im Jahr bei der Wohngebäudeversicherung gespart hat.",
     name: "Julia R.",
-    context: "Kfz-Versicherung, Berlin",
+    context: "Wohngebäudeversicherung, Berlin",
     stars: 5,
   },
   {
-    quote: "Ich dachte, meine Haftpflichtversicherung wäre in Ordnung. Mein Makler hat mir gezeigt, dass ich deutlich unterversichert war, und das zum gleichen Preis.",
+    quote: "Nach dem Hochwasser in unserer Region wollten wir endlich Elementarschutz. Unser Makler hat uns innerhalb einer Woche eine umfassende Wohngebäudeversicherung vermittelt.",
     name: "Markus H.",
-    context: "Haftpflichtversicherung, Frankfurt",
+    context: "Wohngebäudeversicherung, Frankfurt",
     stars: 5,
   },
   {
     quote: "Der gesamte Prozess fühlte sich begleitet und ruhig an. Kein Druck, nur klare Informationen und ein Makler, der wirklich zugehört hat.",
     name: "Anna S.",
-    context: "Krankenversicherung, Köln",
+    context: "Wohngebäudeversicherung, Köln",
     stars: 5,
   },
   {
@@ -232,21 +232,21 @@ const testimonials = [
     stars: 5,
   },
   {
-    quote: "Mein Makler hat mir erklärt, warum meine alte BU-Versicherung Lücken hatte. Jetzt bin ich richtig abgesichert und zahle sogar weniger.",
+    quote: "Wir haben unser Reihenhaus gerade erst gekauft und brauchten schnell eine Wohngebäudeversicherung. Mein Makler hat alles innerhalb von drei Tagen geregelt.",
     name: "Katharina B.",
-    context: "Berufsunfähigkeitsversicherung, Düsseldorf",
+    context: "Wohngebäudeversicherung, Düsseldorf",
     stars: 5,
   },
   {
-    quote: "Als alleinerziehende Mutter war mir wichtig, dass jemand meine Situation versteht. Mein OptiCheck-Makler hat genau das getan und die perfekte Lösung gefunden.",
+    quote: "Als alleinerziehende Mutter war mir wichtig, dass jemand meine Situation versteht. Mein OptiCheck-Makler hat die perfekte Wohngebäudeversicherung für unser kleines Haus gefunden.",
     name: "Lena F.",
-    context: "Haftpflicht + Krankenversicherung, Leipzig",
+    context: "Wohngebäudeversicherung, Leipzig",
     stars: 5,
   },
   {
-    quote: "Ich habe wochenlang Vergleichsportale durchforstet und kam nicht weiter. Ein SmartCheck und ich hatte einen Makler, der die Arbeit für mich erledigt hat.",
+    quote: "Ich habe wochenlang Vergleichsportale durchforstet und kam nicht weiter. Ein SmartCheck und ich hatte einen Makler, der mir die beste Wohngebäudeversicherung vermittelt hat.",
     name: "Michael D.",
-    context: "Kfz-Versicherung, Dresden",
+    context: "Wohngebäudeversicherung, Dresden",
     stars: 5,
   },
   {
@@ -256,15 +256,15 @@ const testimonials = [
     stars: 5,
   },
   {
-    quote: "Ich arbeite selbst in der Finanzbranche und habe trotzdem OptiCheck für meine eigene Versicherung genutzt. Das Maklernetzwerk ist wirklich beeindruckend.",
+    quote: "Ich arbeite selbst in der Finanzbranche und habe trotzdem OptiCheck für meine Wohngebäudeversicherung genutzt. Das Maklernetzwerk ist wirklich beeindruckend.",
     name: "Christian L.",
-    context: "Komplettcheck, Frankfurt",
+    context: "Wohngebäudeversicherung, Frankfurt",
     stars: 5,
   },
   {
-    quote: "Mit 25 hatte ich keine Ahnung von Versicherungen. Mein Makler hat mir alles in einfacher Sprache erklärt und mir genau das empfohlen, was ich brauche.",
+    quote: "Mit 25 und meiner ersten Eigentumswohnung hatte ich keine Ahnung von Wohngebäudeversicherung. Mein Makler hat mir alles in einfacher Sprache erklärt und genau das empfohlen, was ich brauche.",
     name: "Sophie T.",
-    context: "Erstversicherung, Berlin",
+    context: "Wohngebäudeversicherung, Berlin",
     stars: 5,
   },
 ];
@@ -377,7 +377,7 @@ function InsuranceDirectorySection() {
                     </div>
                     {comingSoon && <ComingSoonBadge />}
                   </div>
-                  <h3 className={`mt-5 font-[Manrope] text-xl font-bold tracking-[-0.03em] ${active ? "text-[#171A21]" : "text-gray-500"}`}>{title}</h3>
+                  <h3 className={`mt-5 font-[Manrope] text-lg font-bold tracking-[-0.03em] leading-tight ${active ? "text-[#171A21]" : "text-gray-500"}`}>{title}</h3>
                   <p className={`mt-3 text-sm leading-7 ${active ? "text-[#5B6C85]" : "text-gray-400"}`}>{subtitle}</p>
                   <div className={`mt-auto pt-5 inline-flex items-center text-sm font-semibold ${
                     active ? "text-[#2F6BFF] group-hover:text-[#1D8C92]" : "text-gray-400"
@@ -489,7 +489,7 @@ export default function Home() {
                         <Star className="h-4 w-4 fill-[#00B67A] text-[#00B67A]" />
                         <Star className="h-4 w-4 fill-[#00B67A] text-[#00B67A]" />
                         <Star className="h-4 w-4 fill-[#00B67A] text-[#00B67A]" />
-                        <span className="ml-2 text-white">4,8/5 Vertrauensbewertung</span>
+                            <span className="ml-2 text-white">4,8/5 Kundenzufriedenheit</span>
                       </div>
                       <div className="rounded-full border border-white/12 bg-white/8 px-4 py-2 text-white/78 backdrop-blur-sm">Basierend auf verifiziertem Kundenfeedback</div>
                     </div>
@@ -499,7 +499,7 @@ export default function Home() {
                       <span className="block bg-[linear-gradient(90deg,#8DC4FF_0%,#6CE8C0_54%,#25C685_100%)] bg-clip-text text-transparent">
                         Jetzt smart vergleichen.
                       </span>
-                      Tausende Euro sparen.
+                      Optimal versichert sein.
                     </h1>
 
                     <p className="mt-6 max-w-2xl text-lg leading-8 text-white/78 md:text-[1.15rem]">
@@ -517,16 +517,16 @@ export default function Home() {
                     <div className="mt-9 flex flex-col gap-4 sm:flex-row">
                       <a href={WOHNGEBAUDE_CHECK_URL}>
                         <Button className="group h-13 rounded-full bg-[#25C685] px-7 text-base font-semibold text-white shadow-[0_24px_72px_rgba(37,198,133,0.30)] transition hover:scale-[1.01] hover:brightness-[1.03]">
-                          Wohngebäude-Check starten
+                          SmartCheck starten
                           <ArrowRight className="ml-2 h-4 w-4 transition group-hover:translate-x-1" />
                         </Button>
                       </a>
-                      <a href={WOHNGEBAUDE_CHECK_URL}>
+                      <a href="#versicherungen">
                         <Button
                           variant="outline"
                           className="h-13 rounded-full border-white/18 bg-white/8 px-7 text-base text-white shadow-[0_10px_28px_rgba(4,14,34,0.14)] backdrop-blur-sm hover:border-[#25C685] hover:bg-white/12 hover:text-white"
                         >
-                          Jetzt Versicherung prüfen
+                          Mehr Info
                         </Button>
                       </a>
                     </div>
@@ -571,7 +571,7 @@ export default function Home() {
                         <div className="rounded-[1.4rem] border border-[#DDE7F2] bg-[#F9FCFF] p-4">
                           <div className="flex items-start justify-between gap-4">
                             <div>
-                              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#4C6FFF]">Vertrauenssignal</p>
+                              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#4C6FFF]">Kundenzufriedenheit</p>
                               <div className="mt-2 flex items-center gap-2">
                                 <div className="flex items-center gap-1 text-[#00B67A]">
                                   {Array.from({ length: 5 }).map((_, i) => (
@@ -581,7 +581,7 @@ export default function Home() {
                                 <span className="text-sm font-semibold text-[#171A21]">Hervorragend</span>
                               </div>
                             </div>
-                            <div className="rounded-full bg-white px-3 py-1 text-xs text-[#5A6A83]">DE-fokussiert</div>
+                            <div className="rounded-full bg-white px-3 py-1 text-xs text-[#5A6A83]">Hervorragend</div>
                           </div>
                         </div>
 
@@ -643,8 +643,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ═══ TRUST CERTIFICATIONS ═══ */}
-        <TrustCertificationsSection />
+        {/* Zertifizierung entfernt - aktuell nicht zertifiziert */}
 
         {/* ═══ INSURANCE DIRECTORY ═══ */}
         <InsuranceDirectorySection />
@@ -706,7 +705,7 @@ export default function Home() {
 
                     <a href={WOHNGEBAUDE_CHECK_URL}>
                       <Button className="h-13 w-full rounded-full bg-[linear-gradient(90deg,#2F6BFF_0%,#2C86F7_28%,#21B6A8_68%,#25C685_100%)] text-base font-semibold text-white shadow-[0_26px_64px_rgba(47,107,255,0.24)] hover:brightness-[1.03]">
-                        Wohngebäude-Check starten
+                        SmartCheck starten
                       </Button>
                     </a>
                   </div>
@@ -725,7 +724,7 @@ export default function Home() {
                 Das ist kein weiteres Vergleichsportal. Das ist Ihr Vorteil.
               </h2>
               <p className="mt-5 max-w-xl text-lg leading-8 text-[#3A4A5D]">
-                Vergleichstabellen zeigen Ihnen Preise. OptiCheck zeigt Ihnen den Weg. Wir kombinieren KI-gestützte Vorqualifizierung mit lizenzierten Maklern, die in Ihrem Namen verhandeln.
+                Vergleichstabellen zeigen Ihnen Preise. OptiCheck zeigt Ihnen den Weg. Wir kombinieren KI-gestützte SmartMatch-Technologie mit lizenzierten Maklern, die Ihre Verträge verbessern.
               </p>
             </div>
 
@@ -753,7 +752,7 @@ export default function Home() {
                   Deutschlandweites Vertrauen
                 </span>
                 <h2 className="mt-6 font-[Manrope] text-4xl font-extrabold tracking-[-0.04em] text-white md:text-5xl">
-                  Gebaut für die Art, wie Deutsche sich wirklich versichern.
+                  Deutschlandweit bestens versichert und beraten.
                 </h2>
               </div>
               <p className="max-w-xl text-base leading-7 text-[#8BA4C4]">
@@ -809,7 +808,7 @@ export default function Home() {
                 Sie verdienen mehr als eine Vergleichstabelle und "viel Glück."
               </h2>
               <p className="mt-5 text-lg leading-8 text-[#3A4A5D]">
-                Andere Plattformen werfen Sie in ein Meer von Tarifen und lassen Sie allein. OptiCheck qualifiziert Sie zuerst, vermittelt Sie an einen Makler, der auf Ihren Versicherungstyp spezialisiert ist, und gibt Ihnen einen Menschen, der wirklich ans Telefon geht.
+                Andere Plattformen werfen Sie in ein Meer von Tarifen und lassen Sie allein. OptiCheck erfasst Ihre Daten, vermittelt Sie an einen Makler, der auf Ihren Versicherungstyp spezialisiert ist, und gibt Ihnen einen Menschen, der sich persönlich um Sie kümmert.
               </p>
               <div className="mt-10 space-y-5">
                 {[
@@ -869,10 +868,10 @@ export default function Home() {
             <div>
               <SectionEyebrow>OptiCheck vs. typische Vergleichsportale</SectionEyebrow>
               <h2 className="mt-6 font-[Manrope] text-4xl font-extrabold tracking-[-0.04em] text-[#171A21] md:text-5xl">
-                Sehen Sie, warum 28.000+ Deutsche OptiCheck gewählt haben.
+                Deshalb haben 824+ Kunden sich für OptiCheck entschieden.
               </h2>
               <p className="mt-5 max-w-xl text-lg leading-8 text-[#3A4A5D]">
-                Der Unterschied ist nicht kosmetisch. OptiCheck qualifiziert Sie vor, vermittelt Sie an einen echten Makler und bietet Ihnen begleitete Unterstützung bei jedem Schritt.
+                OptiCheck qualifiziert Sie vor, vermittelt Sie an einen echten Makler und bietet Ihnen begleitete Unterstützung bei jedem Schritt.
               </p>
             </div>
 
@@ -904,7 +903,7 @@ export default function Home() {
                 </h2>
               </div>
               <p className="max-w-xl text-base leading-7 text-[#5A6A83]">
-                Nehmen Sie nicht unser Wort dafür. Hier ist, was passiert ist, als diese Deutschen aufgehört haben, Tarife zu vergleichen, und angefangen haben, sich mit dem richtigen Makler verbinden zu lassen.
+                Unsere Kundenrezensionen sprechen eine klare Sprache.
               </p>
             </div>
 
@@ -945,8 +944,8 @@ export default function Home() {
               <div className="mt-8 grid gap-4">
                 {[
                   { title: "IHK-lizenziert und geprüft", desc: "Alle Makler in unserem Netzwerk sind nach §34d GewO zugelassen und IHK-registriert." },
-                  { title: "Unabhängig und anbieterübergreifend", desc: "Zugang zu über 120 Versicherungsgesellschaften für eine wirklich unabhängige Beratung." },
-                  { title: "Persönlich und erreichbar", desc: "Kein Callcenter, kein Chatbot. Ihr Makler ist ein echter Mensch mit einer echten Telefonnummer." },
+                  { title: "Anbieterübergreifend und in Ihrem Interesse", desc: "Zugang zu über 48 Versicherungsgesellschaften für eine wirklich unabhängige Beratung." },
+                  { title: "Persönlich und erreichbar", desc: "Kein Callcenter, kein Chatbot. Ihr Makler ist ein echter Mensch, der sich für Ihr Anliegen einsetzt." },
                 ].map((item) => (
                   <div key={item.title} className="rounded-[1.6rem] border border-[#E4EAF2] bg-[#FBFDFE] p-6 shadow-[0_10px_28px_rgba(15,33,61,0.04)]">
                     <h3 className="font-[Manrope] text-lg font-bold tracking-[-0.03em] text-[#171A21]">{item.title}</h3>
@@ -967,45 +966,42 @@ export default function Home() {
           </div>
         </motion.section>
 
-        {/* ═══ PARTNER SECTION ═══ */}
-        <motion.section {...sectionMotion} className="bg-[#F7F5F0] py-16 md:py-20">
+        {/* ═══ PARTNER SECTION - Versicherungsunternehmen ═══ */}
+        <motion.section {...sectionMotion} className="bg-[#F7F5F0] py-16 md:py-20 border-b border-[#E6DED3]">
           <div className="container">
             <div className="text-center">
               <p className="text-xs font-bold uppercase tracking-[0.25em] text-[#3A4A5D]/60">
-                Unsere Partner vertrauen auf OptiCheck
+                Unsere Versicherungspartner
+              </p>
+              <p className="mt-3 text-sm text-[#5A6A83] max-w-xl mx-auto">
+                OptiCheck arbeitet mit führenden deutschen Versicherungsunternehmen zusammen, um Ihnen die besten Konditionen zu sichern.
               </p>
             </div>
-            <div className="mt-10 flex flex-wrap items-center justify-center gap-8 md:gap-14">
-              {/* HMR Versicherungsmakler */}
-              <a href="https://sicherhmr.de/" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-3 rounded-2xl border border-[#E2DFD8] bg-white px-6 py-4 shadow-sm transition hover:border-[#2F6BFF]/30 hover:shadow-md">
-                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[#1B2A4A]">
-                  <Shield className="h-5 w-5 text-white" />
+            <div className="mt-10 flex flex-wrap items-center justify-center gap-6 md:gap-10">
+              {[
+                { name: "Allianz", color: "#003781" },
+                { name: "ERGO", color: "#C8102E" },
+                { name: "AXA", color: "#00008F" },
+                { name: "Debeka", color: "#005CA9" },
+                { name: "ARAG", color: "#003A70" },
+                { name: "HanseMerkur", color: "#006341" },
+                { name: "R+V", color: "#003366" },
+                { name: "HUK-COBURG", color: "#1D428A" },
+                { name: "DEVK", color: "#D4A843" },
+                { name: "Gothaer", color: "#00573F" },
+              ].map((company) => (
+                <div
+                  key={company.name}
+                  className="flex items-center justify-center rounded-2xl border border-[#E2DFD8] bg-white px-6 py-4 shadow-sm transition hover:shadow-md"
+                >
+                  <span
+                    className="text-lg font-extrabold tracking-tight"
+                    style={{ color: company.color }}
+                  >
+                    {company.name}
+                  </span>
                 </div>
-                <div>
-                  <span className="block text-sm font-bold text-[#171A21]">HMR</span>
-                  <span className="block text-[0.7rem] text-[#3A4A5D]/70">Versicherungsmakler</span>
-                </div>
-              </a>
-              {/* Altera Finanz */}
-              <a href="https://www.altera-finanz.de/" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-3 rounded-2xl border border-[#E2DFD8] bg-white px-6 py-4 shadow-sm transition hover:border-[#2F6BFF]/30 hover:shadow-md">
-                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[#2E7D32]">
-                  <Building2 className="h-5 w-5 text-white" />
-                </div>
-                <div>
-                  <span className="block text-sm font-bold text-[#171A21]">Altera Finanz</span>
-                  <span className="block text-[0.7rem] text-[#3A4A5D]/70">Finanz & Versicherung</span>
-                </div>
-              </a>
-              {/* Finanzberatung Singer */}
-              <a href="https://www.finanzberatung-singer.de/" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-3 rounded-2xl border border-[#E2DFD8] bg-white px-6 py-4 shadow-sm transition hover:border-[#2F6BFF]/30 hover:shadow-md">
-                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[#6D3A3A]">
-                  <HeartHandshake className="h-5 w-5 text-white" />
-                </div>
-                <div>
-                  <span className="block text-sm font-bold text-[#171A21]">Christian Singer</span>
-                  <span className="block text-[0.7rem] text-[#3A4A5D]/70">Finanzberatung</span>
-                </div>
-              </a>
+              ))}
             </div>
           </div>
         </motion.section>
@@ -1020,18 +1016,13 @@ export default function Home() {
                 Ihr besserer Schutz ist 2 Minuten entfernt.
               </h2>
               <p className="mt-5 max-w-xl text-lg leading-8 text-white/78">
-                28.000+ Deutsche haben SmartCheck bereits genutzt, um den richtigen Makler zu finden und bei ihren Versicherungen zu sparen. Die einzige Frage ist: Worauf warten Sie noch?
+                824+ Kunden haben SmartCheck bereits genutzt, um den richtigen Makler zu finden und bei ihren Versicherungen zu sparen. Die einzige Frage ist: Worauf warten Sie noch?
               </p>
               <div className="mt-9 flex flex-col gap-4 sm:flex-row">
                 <a href={WOHNGEBAUDE_CHECK_URL}>
                   <Button className="group h-13 rounded-full bg-[#25C685] px-7 text-base font-semibold text-white shadow-[0_24px_72px_rgba(37,198,133,0.30)] transition hover:scale-[1.01] hover:brightness-[1.03]">
-                    Wohngebäude-Check starten
+                    SmartCheck starten
                     <ArrowRight className="ml-2 h-4 w-4 transition group-hover:translate-x-1" />
-                  </Button>
-                </a>
-                <a href={WOHNGEBAUDE_CHECK_URL}>
-                  <Button variant="outline" className="h-13 rounded-full border-white/30 bg-white/8 px-7 text-base text-white hover:bg-white/14">
-                    Jetzt Versicherung prüfen
                   </Button>
                 </a>
               </div>
